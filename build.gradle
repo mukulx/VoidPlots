@@ -83,3 +83,12 @@ tasks.register('applyLicense') {
         tasks.licenseFormat.execute()
     }
 }
+
+// Disable configuration cache for license tasks
+tasks.withType(com.hierynomus.gradle.license.tasks.LicenseCheck).configureEach {
+    notCompatibleWithConfigurationCache("License plugin is not compatible with configuration cache")
+}
+
+tasks.withType(com.hierynomus.gradle.license.tasks.LicenseFormat).configureEach {
+    notCompatibleWithConfigurationCache("License plugin is not compatible with configuration cache")
+}
