@@ -1,0 +1,121 @@
+messages-version: 1
+
+settings:
+  prefix: "&8[&bPlotX&8]&r "
+  use-prefix: true
+
+general:
+  no-permission: "{prefix}&cYou don't have permission to do that!"
+  reload-success: "{prefix}&aConfiguration reloaded successfully!"
+  player-only: "{prefix}&cThis command can only be used by players!"
+  invalid-args: "{prefix}&cInvalid arguments! Usage: {usage}"
+  
+plot:
+  claim:
+    success: "{prefix}&aYou have claimed plot &e{plot}&a!"
+    already-claimed: "{prefix}&cThis plot is already claimed by &e{owner}&c!"
+    max-plots: "{prefix}&cYou have reached the maximum number of plots ({max})!"
+    not-in-plot: "{prefix}&cYou must be standing in a plot to claim it!"
+  
+  auto:
+    success: "{prefix}&aTeleported to and claimed plot &e{plot}&a!"
+    no-free-plots: "{prefix}&cNo free plots available!"
+    
+  home:
+    success: "{prefix}&aTeleported to your plot &e{plot}&a!"
+    no-plots: "{prefix}&cYou don't own any plots!"
+    multiple-plots: "{prefix}&aYour plots: &e{plots}"
+    
+  visit:
+    success: "{prefix}&aTeleported to &e{owner}&a's plot!"
+    not-found: "{prefix}&cPlot not found!"
+    
+  trust:
+    success: "{prefix}&aYou have trusted &e{player}&a on this plot!"
+    already-trusted: "{prefix}&e{player}&c is already trusted!"
+    not-owner: "{prefix}&cYou don't own this plot!"
+    
+  untrust:
+    success: "{prefix}&aYou have untrusted &e{player}&a from this plot!"
+    not-trusted: "{prefix}&e{player}&c is not trusted on this plot!"
+    
+  clear:
+    success: "{prefix}&aPlot cleared successfully!"
+    confirm: "{prefix}&cAre you sure? Type &e/plot clear confirm&c to clear this plot!"
+    
+  delete:
+    success: "{prefix}&aPlot deleted successfully!"
+    confirm: "{prefix}&cAre you sure? Type &e/plot delete confirm&c to delete this plot!"
+    
+  info:
+    header: "&8&m----------&r &bPlot Info &8&m----------"
+    id: "&7ID: &e{id}"
+    owner: "&7Owner: &e{owner}"
+    trusted: "&7Trusted: &e{trusted}"
+    created: "&7Created: &e{created}"
+    footer: "&8&m---------------------------"
+    
+  list:
+    header: "&8&m----------&r &bPlots &8&m----------"
+    entry: "&7{id} &8- &e{owner}"
+    footer: "&7Page {page}/{maxpage}"
+  
+  flag:
+    set: "{prefix}&aFlag &e{flag}&a set to &e{value}&a!"
+    invalid: "{prefix}&cInvalid flag! Available: pvp, mob-spawning, animal-spawning, explosions, weather, time"
+    not-owner: "{prefix}&cYou must own this plot to change flags!"
+    
+  kick:
+    success: "{prefix}&aKicked &e{player}&a from the plot!"
+    kicked: "{prefix}&cYou have been kicked from the plot!"
+    not-owner: "{prefix}&cYou must own or be trusted on this plot to kick players!"
+    
+  ban:
+    success: "{prefix}&aBanned &e{player}&a from the plot!"
+    unbanned: "{prefix}&aUnbanned &e{player}&a from the plot!"
+    already-banned: "{prefix}&e{player}&c is already banned!"
+    not-banned: "{prefix}&e{player}&c is not banned!"
+    not-owner: "{prefix}&cYou must own this plot to ban players!"
+    banned-message: "{prefix}&cYou have been banned from this plot!"
+    cannot-enter: "{prefix}&cYou are banned from this plot!"
+  
+  rate:
+    success: "{prefix}&aYou rated this plot: &e{rating}&a!"
+    already-rated: "{prefix}&cYou have already rated this plot!"
+    own-plot: "{prefix}&cYou cannot rate your own plot!"
+  
+  schematic:
+    not-owner: "{prefix}&cYou must own this plot to use schematics!"
+    download-success: "{prefix}&aPlot downloaded as &e{file}&a!"
+    download-failed: "{prefix}&cFailed to download plot: &e{error}"
+    upload-success: "{prefix}&aSchematic &e{file}&a uploaded to plot!"
+    upload-failed: "{prefix}&cFailed to upload schematic: &e{error}"
+    not-found: "{prefix}&cSchematic not found: &e{file}"
+  
+  comment:
+    success: "{prefix}&aComment added successfully!"
+    own-plot: "{prefix}&cYou cannot comment on your own plot!"
+    too-long: "{prefix}&cComment is too long! Maximum 200 characters."
+    no-comments: "{prefix}&7This plot has no comments yet."
+
+notification:
+  visit: "{prefix}&e{player}&a visited your plot &e{plot}&a!"
+  trusted-online: "{prefix}&aTrusted player &e{player}&a is now online!"
+  rated: "{prefix}&e{player}&a rated your plot &e{plot}&a: &6{rating} &estars!"
+  auto-claim: "{prefix}&aWelcome! You have been given a free plot at &e{plot}&a!"
+    
+admin:
+  world-created: "{prefix}&aPlot world &e{world}&a created successfully!"
+  world-exists: "{prefix}&cPlot world already exists!"
+  world-deleted: "{prefix}&aWorld &e{world}&a has been deleted!"
+  setowner-success: "{prefix}&aSet plot owner to &e{player}&a!"
+  
+gui:
+  settings:
+    title: "Plot Settings"
+    border-block: "&eBorder Block"
+    road-block: "&eRoad Block"
+    fill-block: "&eFill Block"
+    plot-size: "&ePlot Size: &f{size}"
+    road-width: "&eRoad Width: &f{width}"
+    save: "&aSave Settings"

@@ -1,0 +1,85 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version '9.3.2'
+    id 'com.github.hierynomus.license' version '0.16.1'
+}
+
+group = 'dev.mukulx'
+version = '1.0.0-beta'
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url = 'https://maven.enginehub.org/repo/' }
+    maven { url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
+    maven { url = 'https://jitpack.io' }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT'
+    implementation 'org.jetbrains:annotations:26.0.2'
+    implementation 'com.zaxxer:HikariCP:7.0.2'
+    
+    // Optional dependencies
+    compileOnly 'com.sk89q.worldedit:worldedit-bukkit:7.4.0'
+    compileOnly 'me.clip:placeholderapi:2.12.2'
+    
+    // Test dependencies
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testImplementation 'org.junit.platform:junit-platform-launcher:1.11.4'
+    testImplementation 'org.mockito:mockito-core:5.15.2'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.15.2'
+    testImplementation 'com.github.seeseemelk:MockBukkit-v1.21:3.119.0'
+    testImplementation 'org.xerial:sqlite-jdbc:3.51.2.0'
+}
+
+shadowJar {
+    archiveClassifier.set('')
+    relocate 'org.jetbrains.annotations', 'dev.mukulx.voidplots.libs.annotations'
+    relocate 'com.zaxxer.hikari', 'dev.mukulx.voidplots.libs.hikari'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.release.set(21)
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events = ["passed", "skipped", "failed"]
+        exceptionFormat = "full"
+        showStandardStreams = false
+    }
+}
+
+processResources {
+    filteringCharset = 'UTF-8'
+    def projectVersion = version
+    filesMatching('plugin.yml') {
+        expand('version': projectVersion)
+    }
+}
+
+build.dependsOn shadowJar
+
+license {
+    header = file('LICENSE.head')
+    include '**/*.java'
+    strictCheck = true
+    mapping {
+        java = 'JAVADOC_STYLE'
+    }
+}
+
+tasks.register('applyLicense') {
+    group = 'license'
+    description = 'Apply license headers to all Java files'
+    doLast {
+        tasks.licenseFormat.execute()
+    }
+}

@@ -1,0 +1,109 @@
+name: PlotX
+version: ${version}
+main: dev.mukulx.plotx.PlotX
+api-version: '1.21'
+author: MukulX
+description: Advanced plot management plugin for build events and servers
+softdepend: [WorldEdit, FastAsyncWorldEdit, PlaceholderAPI]
+
+commands:
+  plot:
+    description: Main plot command
+    usage: /plot <subcommand>
+    aliases: [p, plots]
+  plotx:
+    description: PlotX admin commands
+    usage: /plotx <subcommand>
+    permission: plotx.admin
+
+permissions:
+  plotx.admin:
+    description: Access to all PlotX admin commands
+    default: op
+  plotx.admin.bypass:
+    description: Bypass plot restrictions (bans, flags, etc.)
+    default: op
+  plotx.claim:
+    description: Claim a plot
+    default: true
+  plotx.auto:
+    description: Auto-claim a plot
+    default: true
+  plotx.home:
+    description: Teleport to your plot
+    default: true
+  plotx.visit:
+    description: Visit other plots
+    default: true
+  plotx.trust:
+    description: Trust players on your plot
+    default: true
+  plotx.untrust:
+    description: Untrust players from your plot
+    default: true
+  plotx.clear:
+    description: Clear your plot
+    default: true
+  plotx.delete:
+    description: Delete your plot
+    default: true
+  plotx.info:
+    description: View plot information
+    default: true
+  plotx.list:
+    description: List plots
+    default: true
+  plotx.setowner:
+    description: Set plot owner
+    default: op
+  plotx.deleteworld:
+    description: Delete worlds
+    default: op
+  plotx.tp:
+    description: Teleport to plot world
+    default: true
+  plotx.flag:
+    description: Use flag commands
+    default: true
+  plotx.flag.pvp:
+    description: Set PvP flag
+    default: true
+  plotx.flag.mob-spawning:
+    description: Set mob spawning flag
+    default: true
+  plotx.flag.animal-spawning:
+    description: Set animal spawning flag
+    default: true
+  plotx.flag.explosions:
+    description: Set explosions flag
+    default: true
+  plotx.flag.weather:
+    description: Set weather flag
+    default: true
+  plotx.flag.time:
+    description: Set time flag
+    default: true
+  plotx.kick:
+    description: Kick players from your plot
+    default: true
+  plotx.ban:
+    description: Ban/unban players from your plot
+    default: true
+  plotx.rate:
+    description: Rate plots
+    default: true
+  plotx.top:
+    description: View top rated plots
+    default: true
+  plotx.comment:
+    description: Leave comments on plots
+    default: true
+  plotx.comments:
+    description: View plot comments
+    default: true
+  plotx.download:
+    description: Download plot as schematic
+    default: true
+  plotx.upload:
+    description: Upload schematic to plot
+    default: true
